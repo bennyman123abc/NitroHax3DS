@@ -54,6 +54,7 @@ arm9_errorOutput
 Displays an error code on screen.
 Written by Chishm
 --------------------------------------------------------------------------*/
+/* Disabled for non debug version. Enable to debug card init problems
 static void arm9_errorOutput (u32 code, bool clearBG) {
 	int i, j, k;
 	u16 colour;
@@ -129,6 +130,7 @@ static void arm9_errorOutput (u32 code, bool clearBG) {
 		}
 	}
 }
+*/
 
 /*-------------------------------------------------------------------------
 arm9_main
@@ -217,7 +219,8 @@ void arm9_main (void) {
 	arm9_stateFlag = ARM9_READY;
 	while ( arm9_stateFlag != ARM9_BOOTBIN ) {
 		if (arm9_stateFlag == ARM9_DISPERR) {
-			arm9_errorOutput (arm9_errorCode, arm9_errorClearBG);
+			// Re-enable to debug card init issues.
+			// arm9_errorOutput (arm9_errorCode, arm9_errorClearBG);
 			if ( arm9_stateFlag == ARM9_DISPERR) {
 				arm9_stateFlag = ARM9_READY;
 			}
