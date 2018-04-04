@@ -228,7 +228,7 @@ void arm7_startBinary (void)
 
 void arm7_main (void) {
 	int errorCode;
-
+	
 	// Wait for ARM9 to at least start
 	while (arm9_stateFlag < ARM9_START);
 
@@ -254,7 +254,7 @@ void arm7_main (void) {
 	}
 
 	debugOutput (ERR_STS_START);
-
+	
 	arm7_startBinary();
 
 	return;
